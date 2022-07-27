@@ -8,8 +8,7 @@
             Random random = new Random();
             int minValue = 1;
             int maxValue = 10;
-            int countOfRepeat = 0;
-            int startCountKey = numbers[0];
+            int startOfRepeat = 2;
 
             for (int i = 0; i < numbers.Length; i++)
             {
@@ -17,42 +16,25 @@
                 Console.Write(numbers[i] + ",");
             }
 
-            for (int i = 0; i < numbers.Length; i++)
+            for (int i = 0; i < numbers.Length-1; i++)
             {
-                for (int j = 0; j < numbers.Length - 1; j++)
+                if (numbers[i] == numbers[i+1])
                 {
-                    if (numbers[j + 1] > numbers[j])
+                    
+                    if (numbers[i+1] == numbers[i+2])
                     {
-                        int sort = numbers[j];
-                        numbers[j] = numbers[j + 1];
-                        numbers[j + 1] = sort;
-                    }
-                }
-            }
-
-            Console.WriteLine("\nОтсортированный массив по порядку: ");
-
-            for (int i = 0; i < numbers.Length - 1; i++)
-            {
-                Console.Write(numbers[i] + ",");
-
-            }
-
-            for (int i = 0; i < numbers.Length; i++)
-            {
-                for (int k = i + 1; k < numbers.Length; k++)
-                {
-                    if (numbers[i] == numbers[k])
-                    {
-                        countOfRepeat++;
+                        startOfRepeat += 1;
                     }
                     else
                     {
-                        countOfRepeat = 0;
+                        startOfRepeat = 2;
                     }
-                    Console.WriteLine(countOfRepeat);
+                    Console.Write("\nПовторяющиеся числа: " + numbers[i] + " - " + startOfRepeat);
                 }
+                
+   
             }
+
         }
     }
 }
