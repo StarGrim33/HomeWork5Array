@@ -19,7 +19,7 @@
 
             for (int i = 0; i < numbers.Length; i++)
             {
-                for (int j = 0; j < numbers.Length -1; j++)
+                for (int j = 0; j < numbers.Length - 1; j++)
                 {
                     if (numbers[j + 1] > numbers[j])
                     {
@@ -30,14 +30,30 @@
                 }
             }
 
-            for (int i = 0; i < numbers.Length-1; i++)
+            Console.WriteLine("\nОтсортированный массив по порядку: ");
+
+            for (int i = 0; i < numbers.Length - 1; i++)
             {
-                if (numbers[i] == numbers[i+1])
+                Console.Write(numbers[i] + ",");
+
+            }
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                for (int k = i + 1; k < numbers.Length; k++)
                 {
-                    startCountKey++;
-                    Console.Write(numbers[i]);
+                    if (numbers[i] == numbers[k])
+                    {
+                        countOfRepeat++;
+                    }
+                    else
+                    {
+                        countOfRepeat = 0;
+                    }
+                    Console.WriteLine(countOfRepeat);
                 }
             }
         }
     }
 }
+
