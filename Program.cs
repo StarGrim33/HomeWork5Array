@@ -9,6 +9,8 @@
             int minValue = 1;
             int maxValue = 10;
             int startOfRepeat = 2;
+            int bestLength = 0;
+            int bestRepeat = 0;
 
             for (int i = 0; i < numbers.Length; i++)
             {
@@ -16,23 +18,20 @@
                 Console.Write(numbers[i] + ",");
             }
 
-            for (int i = 0; i < numbers.Length-1; i++)
+            for (int i = 0; i < numbers.Length-2; i++)
             {
                 if (numbers[i] == numbers[i+1])
                 {
-                    
-                    if (numbers[i+1] == numbers[i+2])
-                    {
-                        startOfRepeat += 1;
-                    }
-                    else
-                    {
-                        startOfRepeat = 2;
-                    }
-                    Console.Write("\nПовторяющиеся числа: " + numbers[i] + " - " + startOfRepeat);
+                    startOfRepeat = 2;
+                    bestRepeat = startOfRepeat;
+
                 }
-                
-   
+                else if (numbers[i] == numbers[i+2])
+                {
+                    startOfRepeat += 1;
+                    bestRepeat = startOfRepeat;
+                }
+                Console.WriteLine("Число: " + numbers[i] + " повторяется " + bestRepeat);
             }
 
         }
