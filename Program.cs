@@ -8,9 +8,9 @@
             Random random = new Random();
             int minValue = 1;
             int maxValue = 10;
-            int startOfRepeat = 2;
-            int bestLength = 0;
-            int bestRepeat = 0;
+
+            int lenght = 0;
+            int bestLenght = 0;
 
             for (int i = 0; i < numbers.Length; i++)
             {
@@ -18,21 +18,51 @@
                 Console.Write(numbers[i] + ",");
             }
 
-            for (int i = 0; i < numbers.Length-2; i++)
+            for (int i = 0; i < numbers.Length - 2; i++)
             {
-                if (numbers[i] == numbers[i+1])
+                if (i == 0 && numbers[i] == numbers[i + 1])
                 {
-                    startOfRepeat = 2;
-                    bestRepeat = startOfRepeat;
+                     
+                    lenght = 2;
+                    
+                    if (lenght > bestLenght)
+                    {
+                        bestLenght = lenght;
+                       
+                    }
+                    Console.WriteLine("Число: " + numbers[i] + "," + bestLenght);
+                }
+                else if (i != 0 && lenght != 0 && numbers[i] == numbers[i - 1] && numbers[i + 1] == numbers[i])
+                {
+                    lenght++;
+
+                    if (lenght > bestLenght)
+                    {
+                        bestLenght = lenght;
+                    }
+                    Console.WriteLine("Число: " + numbers[i] + "," + bestLenght);
 
                 }
-                else if (numbers[i] == numbers[i+2])
+                else if (i != 0 && numbers[i - 1] != numbers[i] && numbers[i] == numbers[i + 1])
                 {
-                    startOfRepeat += 1;
-                    bestRepeat = startOfRepeat;
+                   
+                    lenght = 2;
+
+                    if (lenght > bestLenght)
+                    {
+                        bestLenght = lenght;
+                        
+                    }
+                    Console.WriteLine("Число: " + numbers[i] + "," + bestLenght);
+
                 }
-                Console.WriteLine("Число: " + numbers[i] + " повторяется " + bestRepeat);
+                else
+                {
+                    lenght = 0;
+                }
+
             }
+            Console.WriteLine("\nСамый длинный повтор: " + bestLenght + ",");
 
         }
     }
