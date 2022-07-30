@@ -60,9 +60,8 @@
                 {
                     lenght = 0;
                 }
-                
-
             }
+            Console.WriteLine("\nЛучшее повторение: " + bestLenght);
     
         }
     }
