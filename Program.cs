@@ -11,9 +11,6 @@
 
             int lenght = 0;
             int bestLenght = 0;
-            int number1 = 0;
-            int number2 = 0;
-            int number3 = 0;
 
             for (int i = 0; i < numbers.Length; i++)
             {
@@ -30,7 +27,6 @@
                     if (lenght > bestLenght)
                     {
                         bestLenght = lenght;
-                        number1 = numbers[i];
 
                     }
                     Console.WriteLine("\nЧисло: " + numbers[i] + " повторяется: " + bestLenght);
@@ -43,7 +39,6 @@
                     if (lenght > bestLenght)
                     {
                         bestLenght = lenght;
-                        number2 = numbers[i];
 
                     }
                     Console.WriteLine("\nЧисло: " + numbers[i] + " повторяется: " + bestLenght);
@@ -56,7 +51,6 @@
                     if (lenght > bestLenght)
                     {
                         bestLenght = lenght;
-                        number3 = numbers[i];
 
                     }
                     Console.WriteLine("\nЧисло: " + numbers[i] + " повторяется: " + bestLenght);
@@ -69,20 +63,7 @@
                 
 
             }
-            if (number1 > number2)
-            {
-                Console.WriteLine(number1 + bestLenght);
-            }
-            else if (number2 > number1)
-            {
-                Console.WriteLine(number2 + bestLenght);
-
-            }
-            else
-            {
-                Console.WriteLine(number3 + bestLenght);
-            }
-
+    
         }
     }
 }
