@@ -11,6 +11,7 @@
 
             int lenght = 0;
             int bestLenght = 0;
+            int number = numbers.Length;
 
             for (int i = 0; i < numbers.Length; i++)
             {
@@ -18,52 +19,32 @@
                 Console.Write(numbers[i] + ",");
             }
 
-            for (int i = 0; i < numbers.Length - 2; i++)
+            for (int i = 0; i < number-2; i++)
             {
-                if (i == 0 && numbers[i] == numbers[i + 1])
+                if (numbers[i] == numbers[i + 1])
                 {
                     lenght = 2;
-
-                    if (lenght > bestLenght)
+                    if (numbers[i+1] == numbers[i+2])
                     {
-                        bestLenght = lenght;
-
+                        lenght++;
                     }
-                    Console.WriteLine("\nЧисло: " + numbers[i] + " повторяется: " + bestLenght);
+                    
 
                 }
-                else if (i != 0 && lenght != 0 && numbers[i] == numbers[i - 1] && numbers[i + 1] == numbers[i])
+                if (lenght > bestLenght)
                 {
-                    lenght++;
-
-                    if (lenght > bestLenght)
-                    {
-                        bestLenght = lenght;
-
-                    }
-                    Console.WriteLine("\nЧисло: " + numbers[i] + " повторяется: " + bestLenght);
-
-                }
-                else if (i != 0 && numbers[i - 1] != numbers[i] && numbers[i] == numbers[i + 1])
-                {
-                    lenght = 2;
-
-                    if (lenght > bestLenght)
-                    {
-                        bestLenght = lenght;
-
-                    }
-                    Console.WriteLine("\nЧисло: " + numbers[i] + " повторяется: " + bestLenght);
+                    bestLenght = lenght;
+                    Console.WriteLine("\n Число: " + numbers[i] + " повторяется: " + bestLenght + " раз.");
 
                 }
                 else
                 {
                     lenght = 0;
                 }
+
+
             }
-            Console.WriteLine("\nЛучшее повторение: " + bestLenght);
-    
+
         }
     }
 }
-
