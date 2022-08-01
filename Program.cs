@@ -9,9 +9,10 @@
             int minValue = 1;
             int maxValue = 10;
 
-            int lenght = 0;
-            int bestLenght = 0;
-            int number = numbers.Length;
+            int nextAdjacentNumber = 1;
+            int maxNumberRepeat = 0;
+            int countOfRepeat = 0;
+            int maxCountRepeat = 0;
 
             for (int i = 0; i < numbers.Length; i++)
             {
@@ -19,32 +20,29 @@
                 Console.Write(numbers[i] + ",");
             }
 
-            for (int i = 0; i < number-2; i++)
+            for (int i = 0; i < numbers.Length-1; i++)
             {
-                if (numbers[i] == numbers[i + 1])
+                countOfRepeat = 1;
+
+                if (numbers[i] == numbers[i + nextAdjacentNumber])
                 {
-                    lenght = 2;
-                    if (numbers[i+1] == numbers[i+2])
-                    {
-                        lenght++;
-                        if (lenght > bestLenght)
-                        {
-                            bestLenght = lenght;
-                            Console.WriteLine("\n Число: " + numbers[i] + " повторяется: " + bestLenght + " раз.");
-
-                        }
-                    }
-                    
+                    countOfRepeat++;
+                    maxCountRepeat = countOfRepeat;
+                    maxNumberRepeat = numbers[i];
                 }
-
+                else if (countOfRepeat > maxCountRepeat)
+                {
+                    maxCountRepeat = countOfRepeat;
+                    maxNumberRepeat = numbers[i];
+                }
                 else
                 {
-                    lenght = 0;
-                    Console.WriteLine("\nЭлементы равны и повторяются по два раза");
+                    countOfRepeat = 0;
+                    i++;
                 }
-
+      
             }
-
+            Console.WriteLine("\n Число: " + maxNumberRepeat + " повторяется: "  + maxCountRepeat + " раза.");
         }
     }
 }
