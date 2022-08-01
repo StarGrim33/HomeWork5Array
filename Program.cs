@@ -27,21 +27,21 @@
                     if (numbers[i+1] == numbers[i+2])
                     {
                         lenght++;
+                        if (lenght > bestLenght)
+                        {
+                            bestLenght = lenght;
+                            Console.WriteLine("\n Число: " + numbers[i] + " повторяется: " + bestLenght + " раз.");
+
+                        }
                     }
                     
-
                 }
-                if (lenght > bestLenght)
-                {
-                    bestLenght = lenght;
-                    Console.WriteLine("\n Число: " + numbers[i] + " повторяется: " + bestLenght + " раз.");
 
-                }
                 else
                 {
                     lenght = 0;
+                    Console.WriteLine("\nЭлементы равны и повторяются по два раза");
                 }
-
 
             }
 
