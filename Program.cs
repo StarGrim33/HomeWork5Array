@@ -20,27 +20,29 @@
                 Console.Write(numbers[i] + ",");
             }
 
-            for (int i = 0; i < numbers.Length-1; i++)
+            for (int i = 0; i < numbers.Length-2; i++)
             {
-                countOfRepeat = 1;
 
-                if (numbers[i] == numbers[i + nextAdjacentNumber])
+                if (numbers[i] == numbers[i+nextAdjacentNumber])
                 {
-                    countOfRepeat++;
+                    countOfRepeat = 2;
                     maxCountRepeat = countOfRepeat;
                     maxNumberRepeat = numbers[i];
+                    i++;
+                    if (numbers[i] == numbers[i + nextAdjacentNumber])
+                    {
+                        countOfRepeat++;
+                        maxCountRepeat = countOfRepeat;
+                        maxNumberRepeat = numbers[i];
+                    }
                 }
-                else if (countOfRepeat > maxCountRepeat)
-                {
-                    maxCountRepeat = countOfRepeat;
-                    maxNumberRepeat = numbers[i];
-                }
-                else
+                
+                else if (numbers[i] != numbers[i+nextAdjacentNumber])
                 {
                     countOfRepeat = 0;
                     i++;
                 }
-      
+
             }
             Console.WriteLine("\n Число: " + maxNumberRepeat + " повторяется: "  + maxCountRepeat + " раза.");
         }
