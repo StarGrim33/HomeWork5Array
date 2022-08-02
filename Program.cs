@@ -13,6 +13,7 @@
             int maxNumberRepeat = 0;
             int countOfRepeat = 0;
             int maxCountRepeat = 0;
+            int minCoupleRepeat = 2;
 
             for (int i = 0; i < numbers.Length; i++)
             {
@@ -25,7 +26,7 @@
 
                 if (numbers[i] == numbers[i+nextAdjacentNumber])
                 {
-                    countOfRepeat = 2;
+                    countOfRepeat = minCoupleRepeat;
                     maxCountRepeat = countOfRepeat;
                     maxNumberRepeat = numbers[i];
                     i++;
