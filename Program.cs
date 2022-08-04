@@ -9,9 +9,9 @@
             int minValue = 1;
             int maxValue = 10;
 
-            int maxNumberRepeat = 0;
+            int maxNumberRepeat = numbers[0];
+            int maxCountRepeat = 1;
             int countOfRepeat = 1;
-            int maxCountRepeat = 0;
 
             for (int i = 0; i < numbers.Length; i++)
             {
@@ -19,7 +19,7 @@
                 Console.Write(numbers[i] + ",");
             }
 
-            for (int i = 0; i < numbers.Length - 2; i++)
+            for (int i = 0; i < numbers.Length - 1; i++)
             {
 
                 if (numbers[i] == numbers[i + 1])
@@ -27,25 +27,22 @@
                     countOfRepeat++;
                     maxCountRepeat = countOfRepeat;
                     maxNumberRepeat = numbers[i];
-                    i++;
-
-                    if (numbers[i] == numbers[i + 1])
+                    if (countOfRepeat > maxCountRepeat)
                     {
-                        countOfRepeat++;
                         maxCountRepeat = countOfRepeat;
                         maxNumberRepeat = numbers[i];
-                        i++;
                     }
-                    else if (numbers[i] != numbers[i + 1])
+                }
+                else
+                {
+                    if (countOfRepeat > maxCountRepeat)
+                    {
+                        maxCountRepeat = countOfRepeat;
+                    }
+                    else
                     {
                         countOfRepeat = 1;
-                        i++;
                     }
-
-                }
-                else 
-                {
-                    i++;
                 }
 
             }
