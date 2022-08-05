@@ -9,11 +9,9 @@
             int minValue = 1;
             int maxValue = 10;
 
-            int nextAdjacentNumber = 1;
-            int maxNumberRepeat = 0;
-            int countOfRepeat = 0;
-            int maxCountRepeat = 0;
-            int minCoupleRepeat = 2;
+            int maxNumberRepeat = numbers[0];
+            int maxCountRepeat = 1;
+            int countOfRepeat = 1;
 
             for (int i = 0; i < numbers.Length; i++)
             {
@@ -21,31 +19,36 @@
                 Console.Write(numbers[i] + ",");
             }
 
-            for (int i = 0; i < numbers.Length-2; i++)
+            for (int i = 0; i < numbers.Length - 1; i++)
             {
 
-                if (numbers[i] == numbers[i+nextAdjacentNumber])
+                if (numbers[i] == numbers[i + 1])
                 {
-                    countOfRepeat = minCoupleRepeat;
-                    maxCountRepeat = countOfRepeat;
-                    maxNumberRepeat = numbers[i];
-                    i++;
-                    if (numbers[i] == numbers[i + nextAdjacentNumber])
+                    countOfRepeat++;
+                    
+                    
+                    if (countOfRepeat > maxCountRepeat)
                     {
-                        countOfRepeat++;
                         maxCountRepeat = countOfRepeat;
                         maxNumberRepeat = numbers[i];
                     }
+                    
                 }
-                
-                else if (numbers[i] != numbers[i+nextAdjacentNumber])
+               
+                else if (numbers[i] != numbers[i + 1])
                 {
-                    countOfRepeat = 0;
-                    i++;
+                    if (countOfRepeat > maxCountRepeat)
+                    {
+                        maxCountRepeat = countOfRepeat;
+                    }
+                    else
+                    {
+                        countOfRepeat = 1;
+                    }
                 }
 
             }
-            Console.WriteLine("\n Число: " + maxNumberRepeat + " повторяется: "  + maxCountRepeat + " раза.");
+            Console.WriteLine("\n Число: " + maxNumberRepeat + " повторяется: " + maxCountRepeat + " раза.");
         }
     }
 }
